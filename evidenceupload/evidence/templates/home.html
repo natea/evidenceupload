@@ -1,15 +1,60 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="en-US">
     <head>
+        <meta charset="UTF-8">
         <title>Evidence Upload | Boston Marathon</title>
         {{ form.media }}
+        <meta name="viewport" content="width=device-width">
+        <!-- jQuery UI styles -->
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/jquery-ui.css" id="theme">
+        <!-- jQuery Image Gallery styles -->
+        <link rel="stylesheet" href="http://blueimp.github.com/jQuery-Image-Gallery/css/jquery.image-gallery.min.css">
+        <!-- CSS to style the file input field as button and adjust the jQuery UI progress bars -->
+        <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
+        <!-- CSS adjustments for browsers with JavaScript disabled -->
+        <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
+        <link rel="stylesheet" href="css/fonts.css" />
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/typeplate.css" />
+        <link rel="stylesheet" href="css/breakpoints.css" />
+        <!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
-        <h1>Evidence Upload</h1>
-        {%if message%}<p>{{message}}</p>{%endif%}
-        <form method="post" action="/">
-            {%csrf_token%}
-            {{ form.as_p }}
-            <p><input type="submit" value="Upload"/></p>
-        </form>
+
+        <header>
+            <h1 class="beta">Evidence Upload</h1>
+            <p>for the Boston Marathon Tragedy</p>
+        </header>
+        <div class="content">
+            <section>
+                <p>
+                    If you were at the event and near the blast either before, during, or after the explosions:
+                    <strong>we need your photographs!</strong>
+                    Even if you don't think it's very useful, there
+                    <strong>still might be something</strong>
+                </p>
+                {%if message%}<p>{{message}}</p>{%endif%}
+            <div class="file_uploader">
+                <h3 class="zeta">Upload your evidence!</h3>
+                <form method="post" action="/">
+                    {%csrf_token%}
+                    {{ form.as_p }}
+                    <button class="cta">Select &amp; Upload Evidence</button>
+                    <p><input type="submit" value="Upload"/></p>
+                </form>
+                <h5 class="zeta">{{photos_uploaded}} photos uploaded</h5>
+
+            </div>
+
+            </section>
+        </div>
+        <footer>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="http://www.twitter.com/evidenceupload">@evidenceupload</a></li>
+            </ul>
+            <span class="made_in_boston">Made in Boston</span>
+        </footer>
     </body>
 </html>
