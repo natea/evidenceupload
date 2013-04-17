@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Evidence Upload | Boston Marathon</title>
+        {{ form.media }}
+    </head>
+    <body>
+        <h1>Evidence Upload</h1>
+        {%if message%}<p>{{message}}</p>{%endif%}
+        <form method="post" action="/">
+            {%csrf_token%}
+            {{ form.as_p }}
+            <p><input type="submit" value="Upload"/></p>
+        </form>
+    </body>
+</html>
